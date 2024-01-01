@@ -16,15 +16,17 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   HomeProvider? providerr;
   HomeProvider? providerw;
+
   @override
   void initState() {
     super.initState();
     context.read<HomeProvider>().getData();
   }
+
   Widget build(BuildContext context) {
     providerr = context.read<HomeProvider>();
     providerw = context.watch<HomeProvider>();
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -45,21 +47,22 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         body: ListView.builder(
-          itemCount:providerw!.emptyList.length,
-            itemBuilder: (context, index) {
+          itemCount: providerw!.emptyList.length,
+          itemBuilder: (context, index) {
             HomeModel geetaList = providerw!.emptyList[index];
             return ListTile(
-            leading: Text(geetaList.title),
-              onTap: (){
-                Navigator.pushNamed(context, 'adhyay',arguments: geetaList);
+              leading: Text(geetaList.title,style: TextStyle(fontSize: 20),),
+              onTap: () {
+                Navigator.pushNamed(context, 'adhyay', arguments: geetaList);
               },
-                        );
-        },),
+            );
+          },
+        ),
       ),
     );
   }
 }
- /*Column(
+/*Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
            ListView.builder(
