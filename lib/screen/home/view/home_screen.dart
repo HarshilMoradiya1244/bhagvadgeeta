@@ -55,6 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () {
                 Navigator.pushNamed(context, 'adhyay', arguments: geetaList);
               },
+              trailing: Icon(Icons.arrow_forward_ios_outlined),
             );
           },
         ),
