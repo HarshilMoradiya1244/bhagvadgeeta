@@ -7,6 +7,7 @@ class HomeProvider with ChangeNotifier{
 
   List<HomeModel> emptyList = [];
   bool isLight = true;
+  String? language = "English";
 
 
   Future<void> getData() async {
@@ -20,6 +21,11 @@ class HomeProvider with ChangeNotifier{
     ShareHelper shr = ShareHelper();
     bool? isTheme = await shr.getTheme();
     isLight = isTheme ?? false;
+    notifyListeners();
+  }
+
+  void setLanguage(String value) {
+    language = value;
     notifyListeners();
   }
 
