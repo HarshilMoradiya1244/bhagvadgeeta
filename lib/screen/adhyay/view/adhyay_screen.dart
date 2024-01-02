@@ -73,14 +73,13 @@ class _AdhyayScreenState extends State<AdhyayScreen> {
             padding: const EdgeInsets.all(10),
             child: Column(
               children: [
-                Image.asset(
-                  "assets/images/img1.jpg",
-                  height: 200,
-                  width: 200,
+                Image.network(
+                  l1.url,
+                  fit: BoxFit.cover,
                 ),
                 const SizedBox(height: 25),
                 providerr!.language=='Gujarati'?Text(l1.meaning, style: const TextStyle(fontSize: 20))
-                        :providerr!.language=='Hindi'?Text(l1.shloka, style: const TextStyle(fontSize: 20)):
+                        :providerr!.language=='Hindi'?Text(l1.hindi, style: const TextStyle(fontSize: 20)):
                  Text(l1.english, style: const TextStyle(fontSize: 20)),
               ],
             ),
